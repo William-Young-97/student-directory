@@ -13,12 +13,20 @@ students = [
  "Norman Bates",
 ]
 
-# puts title
-puts "The students of Villans Academy"
-puts "-------------"
-
+# Use methods
+def print_header
+  puts "The students of Villans Academy"
+  puts "-------------"
+end
 # Iterate through and print the list of students
-students.each { |student| puts student }
+def print_(names)
+  names.each { |student| puts student }
+end
 
-# puts a string using string interpolation 
-puts "Overall, we have #{students.count} great students"
+def print_footer(names)
+  puts "Overall, we have #{names.count} great students"
+end
+
+print_header
+print_(students)
+print_footer(students)
