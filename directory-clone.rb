@@ -42,7 +42,7 @@ def print_header
 end
 # Iterate through and print the list of students
 def print_(names)
-  names.each_with_index { |student, index| puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)" if student[:name][0] == "S" }
+  names.each_with_index { |student, index| puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)" if student[:name].length < 12 }
 end
 
 def print_footer(names)
