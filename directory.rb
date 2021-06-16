@@ -1,4 +1,5 @@
 # Create an array of students
+=begin
 students = [
  {name: "Dr. Hannibal Lecter", cohort: :november},
  {name: "Nurse Rached", cohort: :november},
@@ -11,8 +12,25 @@ students = [
  {name: "Jeoffrey Baratheon", cohort: :november},
  {name: "Norman Bates", cohort: :november}
 ]
+=end
 
 # Use methods
+
+def input_students
+  puts "Please input a student name"
+  puts "Use return to exit"
+  students = []
+  name = gets.chomp
+  # Whlie name not empty allows return to end loop  
+  while !name.empty?
+    students << {name: name, cohort: :november} # Shovelling in the hash format
+    puts "We now have #{students.count} students!"
+    name = gets.chomp
+  end
+  students
+end
+  
+  
 def print_header
   puts "The students of Villans Academy"
   puts "-------------"
@@ -26,6 +44,8 @@ def print_footer(names)
   puts "Overall, we have #{names.count} great students"
 end
 
+# Assign the return value of input_students to students
+students = input_students
 print_header
 print_(students)
 print_footer(students)
