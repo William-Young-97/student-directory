@@ -17,15 +17,20 @@ students = [
 # Use methods
 
 def input_students
-  puts "Please input a student name"
-  puts "Use return to exit"
   students = []
+  puts "Use return twice to exit"
+  puts "Please input a student name"
   name = gets.chomp
+  puts "Please enter the cohort month"
+  month = gets.chomp
   # Whlie name not empty allows return to end loop  
-  while !name.empty?
-    students << {name: name, cohort: :november} # Shovelling in the hash format
+  while !name.empty? && !month.empty?
+    students << {name: name, cohort: month} # Shovelling in the hash format
     puts "We now have #{students.count} students!"
-    name = gets.chomp
+     puts "Please input a student name"
+  name = gets.chomp
+  puts "Please enter the cohort month"
+  month = gets.chomp
   end
   students
 end
