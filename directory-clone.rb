@@ -20,17 +20,17 @@ def input_students
   students = []
   puts "Use return twice to exit"
   puts "Please input a student name"
-  name = gets.chomp
+  name = gets.chomp.capitalize
   puts "Please enter the cohort month"
-  month = gets.chomp
+  month = gets.chomp.capitalize
   # Whlie name not empty allows return to end loop  
   while !name.empty? && !month.empty?
     students << {name: name, cohort: month} # Shovelling in the hash format
     puts "We now have #{students.count} students!"
      puts "Please input a student name"
-  name = gets.chomp
+  name = gets.chomp.capitalize
   puts "Please enter the cohort month"
-  month = gets.chomp
+  month = gets.chomp.capitalize
   end
   students
 end
@@ -42,7 +42,7 @@ def print_header
 end
 # Iterate through and print the list of students
 def print_(names)
-  names.each_with_index { |student, index| puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)" }
+  names.each_with_index { |student, index| puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)" if student[:name][0] == "S" }
 end
 
 def print_footer(names)
