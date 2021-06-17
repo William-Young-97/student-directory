@@ -18,7 +18,7 @@ students = [
 
 def input_students
   students = []
-  puts "Type q to exit"
+  puts "Leave fields blank to exit"
   puts "Please input a student name"
   name = gets.chomp.capitalize
   puts "Please enter the cohort month"
@@ -46,10 +46,22 @@ def print_header
   puts "The students of Villans Academy"
   puts "-------------"
 end
-# Iterate through and print the list of students
+
+def group_cohort(names)
+  month = {}
+  names.each do |person| 
+    cohort = person[:cohort]
+    if month[cohort] == nil
+      month[cohort] = []
+    end
+     month[cohort] << person[:name]
+  end
+end
+
 def print_(names)
   names.each { |student| puts "#{student[:name]} is in the #{student[:cohort]} cohort.\n#{student[:name]} likes #{student[:hobbies]}."}
 end
+    
 
 def print_footer(names)
   puts "Overall, we have #{names.count} great students"
@@ -58,6 +70,7 @@ end
 # Assign the return value of input_students to students
 students = input_students
 print_header
+group_cohort(students)
 print_(students)
 print_footer(students)
 
